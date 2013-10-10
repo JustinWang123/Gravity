@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GravityGame" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GravityGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GravityGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Release" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="C:/Users/Dima/Documents/Lib/SDL-1.2.15/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-lmingw32" />
+			<Add option="-lSDLmain" />
+			<Add option="-lSDL" />
+			<Add option="-lSDL_net" />
+			<Add option="-lSDL_gfx" />
+			<Add option="-lSDL_ttf" />
+			<Add option="-lSDL_image" />
+			<Add directory="C:/Users/Dima/Documents/Lib/SDL-1.2.15/lib" />
+			<Add directory="C:/Users/Dima/Documents/Lib/SDL-1.2.15/bin" />
+		</Linker>
+		<Unit filename="Bullet.cpp" />
+		<Unit filename="Bullet.h" />
+		<Unit filename="Button.cpp" />
+		<Unit filename="Button.h" />
+		<Unit filename="Client.cpp" />
+		<Unit filename="Client.h" />
+		<Unit filename="Editor.cpp" />
+		<Unit filename="Editor.h" />
+		<Unit filename="EditorGameSim.cpp" />
+		<Unit filename="EditorGameSim.h" />
+		<Unit filename="EditorMap.cpp" />
+		<Unit filename="EditorMap.h" />
+		<Unit filename="ExplosionParticle.cpp" />
+		<Unit filename="ExplosionParticle.h" />
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
+		<Unit filename="GameSim.cpp" />
+		<Unit filename="GameSim.h" />
+		<Unit filename="Map.cpp" />
+		<Unit filename="Map.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Mine.cpp" />
+		<Unit filename="Mine.h" />
+		<Unit filename="Missile.cpp" />
+		<Unit filename="Missile.h" />
+		<Unit filename="PacketProtocol.h" />
+		<Unit filename="PickUp.cpp" />
+		<Unit filename="PickUp.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
+		<Unit filename="PlayerCharacter.cpp" />
+		<Unit filename="PlayerCharacter.h" />
+		<Unit filename="PlayerCharacterControlled.cpp" />
+		<Unit filename="PlayerCharacterControlled.h" />
+		<Unit filename="ProjectileBase.cpp" />
+		<Unit filename="ProjectileBase.h" />
+		<Unit filename="SDLWrapper.cpp" />
+		<Unit filename="SDLWrapper.h" />
+		<Unit filename="Server.cpp" />
+		<Unit filename="Server.h" />
+		<Unit filename="SmokeParticle.cpp" />
+		<Unit filename="SmokeParticle.h" />
+		<Unit filename="Vector2df.cpp" />
+		<Unit filename="Vector2df.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

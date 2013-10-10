@@ -1,0 +1,810 @@
+# depslib dependency file v1.0
+1380767872 source:c:\users\dima\desktop\gravity\bullet.cpp
+	"Bullet.h"
+	"Game.h"
+
+1380767651 c:\users\dima\desktop\gravity\bullet.h
+	"ProjectileBase.h"
+
+1379648058 c:\users\dima\desktop\gravity\projectilebase.h
+	"SDLWrapper.h"
+
+1379638689 c:\users\dima\desktop\gravity\sdlwrapper.h
+	"SDL.h"
+	"SDL_net.h"
+	<string>
+	"SDL_rotozoom.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326114588 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326114594 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326114600 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\begin_code.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\close_code.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1326644410 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_net.h
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1336974206 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1380334020 c:\users\dima\desktop\gravity\game.h
+	"SDLWrapper.h"
+	"PacketProtocol.h"
+	"Bullet.h"
+	"Map.h"
+	"Player.h"
+	"Missile.h"
+	"ExplosionParticle.h"
+	"SmokeParticle.h"
+	"Mine.h"
+	"PickUp.h"
+	<deque>
+	<vector>
+
+1380339309 c:\users\dima\desktop\gravity\packetprotocol.h
+	"SDLWrapper.h"
+
+1377463267 c:\users\dima\desktop\gravity\map.h
+	"SDLWrapper.h"
+
+1379647739 c:\users\dima\desktop\gravity\player.h
+	"PlayerCharacter.h"
+
+1378442352 c:\users\dima\desktop\gravity\playercharacter.h
+	"SDLWrapper.h"
+	"ProjectileBase.h"
+
+1379646984 c:\users\dima\desktop\gravity\missile.h
+	"ProjectileBase.h"
+
+1380768392 c:\users\dima\desktop\gravity\explosionparticle.h
+	"ProjectileBase.h"
+
+1379647076 c:\users\dima\desktop\gravity\smokeparticle.h
+	"ProjectileBase.h"
+
+1379647076 c:\users\dima\desktop\gravity\mine.h
+	"ProjectileBase.h"
+
+1377048353 c:\users\dima\desktop\gravity\pickup.h
+	"SDLWrapper.h"
+
+1374197586 source:c:\users\dima\desktop\gravity\button.cpp
+	"Button.h"
+
+1374048544 c:\users\dima\desktop\gravity\button.h
+	"SDLWrapper.h"
+
+1380767872 source:c:\users\dima\desktop\gravity\client.cpp
+	"Client.h"
+	<math.h>
+
+1380333940 c:\users\dima\desktop\gravity\client.h
+	"Game.h"
+	<deque>
+	<vector>
+
+1377744399 source:c:\users\dima\desktop\gravity\explosionparticle.cpp
+	"ExplosionParticle.h"
+	"Game.h"
+
+1380335875 source:c:\users\dima\desktop\gravity\game.cpp
+	"Game.h"
+	<math.h>
+	<assert.h>
+
+1380334002 source:c:\users\dima\desktop\gravity\main.cpp
+	"Server.h"
+	"Client.h"
+	"SDLWrapper.h"
+	<iostream>
+	"Menu.h"
+
+1380333984 c:\users\dima\desktop\gravity\server.h
+	"Game.h"
+
+1374048544 c:\users\dima\desktop\gravity\menu.h
+	"SDLWrapper.h"
+	"Button.h"
+	<string>
+
+1379894718 source:c:\users\dima\desktop\gravity\map.cpp
+	"Map.h"
+	<fstream>
+	<assert.h>
+	<math.h>
+	"Game.h"
+
+1374272353 source:c:\users\dima\desktop\gravity\menu.cpp
+	"Menu.h"
+
+1379647533 source:c:\users\dima\desktop\gravity\mine.cpp
+	"Mine.h"
+	"Bullet.h"
+	"Game.h"
+	<math.h>
+
+1379647562 source:c:\users\dima\desktop\gravity\missile.cpp
+	"Missile.h"
+	"Bullet.h"
+	"Game.h"
+	<math.h>
+
+1377048353 source:c:\users\dima\desktop\gravity\pickup.cpp
+	"PickUp.h"
+
+1374273365 source:c:\users\dima\desktop\gravity\player.cpp
+	"Player.h"
+	"PlayerCharacter.h"
+
+1378442352 source:c:\users\dima\desktop\gravity\playercharacter.cpp
+	"PlayerCharacter.h"
+	"Game.h"
+	"PacketProtocol.h"
+	<math.h>
+
+1374983285 source:c:\users\dima\desktop\gravity\projectilebase.cpp
+	"ProjectileBase.h"
+	<math.h>
+
+1379916483 source:c:\users\dima\desktop\gravity\sdlwrapper.cpp
+	"SDLWrapper.h"
+	"SDL_ttf.h"
+	"SDL_image.h"
+	<math.h>
+	<sstream>
+	<assert.h>
+	<time.h>
+	<stdio.h>
+	<time.h>
+
+1326602648 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1327110694 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1380401628 source:c:\users\dima\desktop\gravity\server.cpp
+	"Server.h"
+	<math.h>
+	<assert.h>
+	<iostream>
+
+1377744550 source:c:\users\dima\desktop\gravity\smokeparticle.cpp
+	"SmokeParticle.h"
+	"Game.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326114588 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_platform.h
+
+1326114594 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326114600 c:\users\dima\documents\lib\sdl-1.2.15\include\begin_code.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\close_code.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keysym.h
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325825126 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_net.h
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1336974206 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1325825594 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325821234 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1381377993 source:c:\users\dima\documents\gravityoct2\bullet.cpp
+	"Bullet.h"
+	"GameSim.h"
+	"PacketProtocol.h"
+	<assert.h>
+
+1381377993 c:\users\dima\documents\gravityoct2\bullet.h
+	"ProjectileBase.h"
+
+1381377993 c:\users\dima\documents\gravityoct2\projectilebase.h
+	"SDLWrapper.h"
+	"Vector2df.h"
+
+1379638689 c:\users\dima\documents\gravityoct2\sdlwrapper.h
+	"SDL.h"
+	"SDL_net.h"
+	<string>
+	"SDL_rotozoom.h"
+
+1381290154 c:\users\dima\documents\gravityoct2\game.h
+	"SDLWrapper.h"
+	"PacketProtocol.h"
+	<deque>
+	<vector>
+	"GameSim.h"
+
+1381369473 c:\users\dima\documents\gravityoct2\packetprotocol.h
+	"SDLWrapper.h"
+	"PlayerCharacter.h"
+	"Map.h"
+
+1381377993 c:\users\dima\documents\gravityoct2\map.h
+	"SDLWrapper.h"
+	"Vector2df.h"
+
+1381367323 c:\users\dima\documents\gravityoct2\player.h
+	"PlayerCharacter.h"
+	<deque>
+
+1381370149 c:\users\dima\documents\gravityoct2\playercharacter.h
+	"SDLWrapper.h"
+	"ProjectileBase.h"
+
+1381378172 c:\users\dima\documents\gravityoct2\missile.h
+	"ProjectileBase.h"
+
+1381378132 c:\users\dima\documents\gravityoct2\explosionparticle.h
+	"ProjectileBase.h"
+
+1381376499 c:\users\dima\documents\gravityoct2\smokeparticle.h
+	"ProjectileBase.h"
+
+1381378172 c:\users\dima\documents\gravityoct2\mine.h
+	"ProjectileBase.h"
+
+1381376962 c:\users\dima\documents\gravityoct2\pickup.h
+	"SDLWrapper.h"
+	"Vector2df.h"
+
+1374197586 source:c:\users\dima\documents\gravityoct2\button.cpp
+	"Button.h"
+
+1381258305 c:\users\dima\documents\gravityoct2\button.h
+	"SDLWrapper.h"
+
+1381378132 source:c:\users\dima\documents\gravityoct2\explosionparticle.cpp
+	"ExplosionParticle.h"
+	"Game.h"
+	<assert.h>
+
+1381108796 source:c:\users\dima\documents\gravityoct2\game.cpp
+	"Game.h"
+	<math.h>
+	<assert.h>
+
+1381288379 source:c:\users\dima\documents\gravityoct2\main.cpp
+	"Server.h"
+	"Client.h"
+	"Editor.h"
+	"SDLWrapper.h"
+	<iostream>
+	"Menu.h"
+
+1381360583 c:\users\dima\documents\gravityoct2\server.h
+	"Game.h"
+
+1381379344 c:\users\dima\documents\gravityoct2\client.h
+	"Game.h"
+	<deque>
+	<vector>
+	"Button.h"
+
+1381288446 c:\users\dima\documents\gravityoct2\menu.h
+	"SDLWrapper.h"
+	"Button.h"
+	<string>
+
+1381378172 source:c:\users\dima\documents\gravityoct2\map.cpp
+	"Map.h"
+	<fstream>
+	<assert.h>
+	<math.h>
+	"Game.h"
+
+1381288432 source:c:\users\dima\documents\gravityoct2\menu.cpp
+	"Menu.h"
+
+1381378238 source:c:\users\dima\documents\gravityoct2\pickup.cpp
+	"PickUp.h"
+	"PacketProtocol.h"
+	<assert.h>
+	"GameSim.h"
+
+1381367323 source:c:\users\dima\documents\gravityoct2\player.cpp
+	"Player.h"
+	"PlayerCharacter.h"
+
+1381376055 source:c:\users\dima\documents\gravityoct2\playercharacter.cpp
+	"PlayerCharacter.h"
+	"Game.h"
+	"PacketProtocol.h"
+	<math.h>
+	<assert.h>
+
+1381258259 source:c:\users\dima\documents\gravityoct2\projectilebase.cpp
+	"ProjectileBase.h"
+	<math.h>
+	"GameSim.h"
+
+1379916483 source:c:\users\dima\documents\gravityoct2\sdlwrapper.cpp
+	"SDLWrapper.h"
+	"SDL_ttf.h"
+	"SDL_image.h"
+	<math.h>
+	<sstream>
+	<assert.h>
+	<time.h>
+	<stdio.h>
+	<time.h>
+
+1381376499 source:c:\users\dima\documents\gravityoct2\smokeparticle.cpp
+	"SmokeParticle.h"
+	"Game.h"
+
+1381379307 source:c:\users\dima\documents\gravityoct2\client.cpp
+	"Client.h"
+	<math.h>
+	<assert.h>
+	<fstream>
+
+1381378172 source:c:\users\dima\documents\gravityoct2\mine.cpp
+	"Mine.h"
+	"Bullet.h"
+	"Game.h"
+	<math.h>
+	<assert.h>
+
+1381378172 source:c:\users\dima\documents\gravityoct2\missile.cpp
+	"Missile.h"
+	"Bullet.h"
+	"Game.h"
+	<math.h>
+	<assert.h>
+
+1381378309 source:c:\users\dima\documents\gravityoct2\server.cpp
+	"Server.h"
+	<math.h>
+	<assert.h>
+	<iostream>
+	<fstream>
+
+1381378132 c:\users\dima\documents\gravityoct2\gamesim.h
+	"SDLWrapper.h"
+	"PlayerCharacter.h"
+	"Bullet.h"
+	"Map.h"
+	"Player.h"
+	"Missile.h"
+	"ExplosionParticle.h"
+	"SmokeParticle.h"
+	"Mine.h"
+	"PickUp.h"
+
+1381378132 source:c:\users\dima\documents\gravityoct2\gamesim.cpp
+	"GameSim.h"
+	"PacketProtocol.h"
+	"PlayerCharacterControlled.h"
+	<assert.h>
+
+1381210852 source:c:\users\dima\documents\gravityoct2\playercharactercontrolled.cpp
+	"PlayerCharacterControlled.h"
+	"Game.h"
+
+1381210846 c:\users\dima\documents\gravityoct2\playercharactercontrolled.h
+	"PlayerCharacter.h"
+	<deque>
+
+1381269021 c:\users\dima\documents\gravityoct2\vector2df.h
+
+1381269042 source:c:\users\dima\documents\gravityoct2\vector2df.cpp
+	"Vector2df.h"
+	"SDLWrapper.h"
+	<math.h>
+
+1381378059 source:c:\users\dima\documents\gravityoct2\editormap.cpp
+	"EditorMap.h"
+	<fstream>
+
+1381352279 c:\users\dima\documents\gravityoct2\editormap.h
+	"Map.h"
+
+1381352279 source:c:\users\dima\documents\gravityoct2\editor.cpp
+	"Editor.h"
+	"EditorGameSim.h"
+	"EditorMap.h"
+
+1381301871 c:\users\dima\documents\gravityoct2\editor.h
+	"Game.h"
+	"Button.h"
+	"Vector2df.h"
+
+1381378059 c:\users\dima\documents\gravityoct2\editorgamesim.h
+	"GameSim.h"
+	"EditorMap.h"
+
+1381290226 source:c:\users\dima\documents\gravityoct2\editorgamesim.cpp
+	"EditorGameSim.h"
+
