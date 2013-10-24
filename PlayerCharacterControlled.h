@@ -4,16 +4,17 @@
 #include "PlayerCharacter.h"
 #include <deque>
 
-class PlayerCharacterControlled : public PlayerCharacter {
+class PlayerCharacterControlled : public PlayerCharacter
+{
 public:
-							PlayerCharacterControlled(Uint32 setId, GameSim* setGameSim);
+    PlayerCharacterControlled(Uint32 setId, BaseGame* setBaseGame);
 
-	virtual void			Update(float timeDelta);
+    virtual void			Update(float timeDelta);
 
 private:
-	virtual void			SetControlState(ControlState newState);
-	void					ProcessUserInput();
+    virtual void			SetControlState(ControlState newState);
+    void					ProcessUserInput();
 
-	std::deque<ControlState> controlStates;
+    std::deque<ControlState> controlStates;
 };
 #endif // PLAYER_CHARACTER_CONTROLLED_H

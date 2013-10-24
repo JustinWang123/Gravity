@@ -8,29 +8,33 @@ class EditorMap;
 
 const float EDITOR_CAM_SPEED =  5.0f;
 
-class Editor : public Game {
+class Editor : public Game
+{
 public:
-	Editor();
-	~Editor();
+    Editor();
+    ~Editor();
 
-	virtual 				void Update();
-	virtual 				void Draw();
+    virtual 				void Update();
+    virtual 				void Draw();
 
-	bool 					GetExit() const {return exit;}
+    bool 					GetExit() const
+    {
+        return exit;
+    }
 
 
 private:
-	void					DrawTileSelector();
+    void					DrawTileSelector();
 
-	Button					exitButton;
-	Button					saveButton;
-	SDL_Surface*			inGameMenu;
+    Button					exitButton;
+    Button					saveButton;
+    SDL_Surface*			inGameMenu;
 
-	Vector2df camPos;
+    Vector2df camPos;
 
-	EditorMap*				editorMap;
-	int 					currentTile;
-	SDL_Surface*			selector;
+    EditorMap*				editorMap;
+    int 					currentTile;
+    SDL_Surface*			selector;
 };
 
 #endif // EDITOR_H

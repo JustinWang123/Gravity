@@ -20,31 +20,33 @@ const int EXIT_POS_X = 10;
 const int EXIT_POS_Y = EDIT_POS_Y + BUTTON_HEIGHT + 10;
 
 
-enum ChoiceType {
-	CHOICE_NONE,
-	CHOICE_JOIN,
-	CHOICE_HOST,
-	CHOICE_EDIT,
-	CHOICE_EXIT
+enum ChoiceType
+{
+    CHOICE_NONE,
+    CHOICE_JOIN,
+    CHOICE_HOST,
+    CHOICE_EDIT,
+    CHOICE_EXIT
 };
 
-class Menu {
+class Menu
+{
 public:
-	Menu();
-	~Menu();
+    Menu();
+    ~Menu();
 
-	void Update();
-	void Draw();
+    void Update();
+    void Draw();
 
-	ChoiceType GetChoice();
+    ChoiceType GetChoice();
 
 private:
-	Button					joinButton;
-	Button					hostButton;
-	Button					editButton;
-	Button					exitButton;
+    Button					joinButton;
+    Button					hostButton;
+    Button					editButton;
+    Button					exitButton;
 
-	ChoiceType choice;
+    ChoiceType choice;
 };
 
 #endif

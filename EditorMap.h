@@ -3,14 +3,15 @@
 
 #include "Map.h"
 
-class EditorMap : public Map {
+class EditorMap : public Map
+{
 public:
-	EditorMap(Vector2df setScreenPos, GameSim* setGameSim);
-	~EditorMap();
+    EditorMap(Vector2df setScreenPos, BaseGame* setBaseGame);
+    ~EditorMap();
 
-	void 			SetTile(Uint32 tileX, Uint32 tileY, TileType type);
-	SDL_Surface* 	GetTileSurface(TileType type);
-	void			SaveMap();
+    void 			SetTile(Uint32 tileX, Uint32 tileY, TileType type);
+    SDL_Surface* 	GetTileSurface(TileType type);
+    void			SaveMap();
 
 private:
 };

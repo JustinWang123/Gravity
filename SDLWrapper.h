@@ -40,7 +40,7 @@ std::string 				ToString(Uint32 i);
 int 						GetAngle(float xpos1, float ypos1, float xpos2, float ypos2);
 int							ClosestDirrectionToAngle(int currentAngle, int desiredAngle); // returns -1, 0, 1
 
-	// Input Methods:
+// Input Methods:
 void 						HandleInput();
 
 // Network Methods:

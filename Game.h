@@ -5,7 +5,7 @@
 #include "PacketProtocol.h"
 #include <deque>
 #include <vector>
-#include "GameSim.h"
+#include "BaseGame.h"
 
 const Uint32 	GAME_SCREEN_X = 4;
 const Uint32 	GAME_SCREEN_Y = 4;
@@ -20,39 +20,40 @@ const Uint32 	CHAT_LOG_POS_Y = 156;
 const Uint32 	CHAT_MESSAGE_POS_X = 600;
 const Uint32 	CHAT_MESSAGE_POS_Y = 156;
 
-class Game {
+class Game
+{
 public:
-							Game();
-	virtual					~Game();
+    Game();
+    virtual					~Game();
 
-	virtual void			Update()=0;
-	virtual void			Draw()=0;
+    virtual void			Update()=0;
+    virtual void			Draw()=0;
 
 protected:
     // Input methods:
-	void					InputChatMessage();
-	void					InputCharToChatMessage();
+    void					InputChatMessage();
+    void					InputCharToChatMessage();
     void					AddMessagetoChat(std::string msg);
     void					DrawChatLog();
-	void					DrawChatMessage();
+    void					DrawChatMessage();
 
-	bool					exit;
+    bool					exit;
 
     // These data members handle typing of messages by the client:
-	bool 					isTypingChatMessage;
-	std::string				chatMessage;
-	Uint32					chatMessageCursorPos;
-	std::vector<std::string>chatLog; // The chatLog stores and displays messages received by the client:
+    bool 					isTypingChatMessage;
+    std::string				chatMessage;
+    Uint32					chatMessageCursorPos;
+    std::vector<std::string>chatLog; // The chatLog stores and displays messages received by the client:
 
-	// Network data members:
-	Uint32					port;
-	IPaddress				serverIP;
-	UDPsocket 				socket;
-	UDPpacket**				packets;
-	Uint32					nextPacketTime;
+    // Network data members:
+    Uint32					port;
+    IPaddress				serverIP;
+    UDPsocket 				socket;
+    UDPpacket**				packets;
+    Uint32					nextPacketTime;
 
-	Player					players[MAX_PLAYERS];
-	GameSim*				gameSim;
+    Player					players[MAX_PLAYERS];
+    BaseGame*				game;
 };
 
 #endif
