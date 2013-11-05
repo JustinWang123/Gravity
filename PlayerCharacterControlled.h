@@ -7,7 +7,7 @@
 class PlayerCharacterControlled : public PlayerCharacter
 {
 public:
-    PlayerCharacterControlled(Uint32 setId, BaseGame* setBaseGame);
+    PlayerCharacterControlled(Uint32 setId, GameBase* setGameBase);
 
     virtual void			Update(float timeDelta);
 

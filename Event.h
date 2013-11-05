@@ -1,11 +1,12 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-class BaseGame;
+class GameBase;
 class ProjectileBase;
 
 enum EventType
 {
+	DO_NOTHING,
 	DEACTIVATE,
 	BULLET_HIT_CHAR,
 	CREATE_SMOKE,
@@ -18,56 +19,63 @@ enum EventType
 class Event
 {
 public:
-	Event(BaseGame* setGame);
+	Event(GameBase* setGame);
 	virtual ~Event(){}
 
 	virtual void Process(ProjectileBase* subject)=0;
 
-	BaseGame*				Game() const;
+	GameBase*				Game() const;
 
 private:
-	BaseGame*				game;
+	GameBase*				game;
+};
+
+class DoNothingEvent : public Event
+{
+public:
+	DoNothingEvent(GameBase* setGame);
+	virtual void Process(ProjectileBase* subject);
 };
 
 class DeactivateEvent : public Event
 {
 public:
-	DeactivateEvent(BaseGame* setGame);
+	DeactivateEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 
 class BulletHitCharEvent : public Event
 {
 public:
-	BulletHitCharEvent(BaseGame* setGame);
+	BulletHitCharEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 
 class CreateSmokeEvent : public Event
 {
 public:
-	CreateSmokeEvent(BaseGame* setGame);
+	CreateSmokeEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 
 class SteerTowardsClosestCharEvent : public Event
 {
 public:
-	SteerTowardsClosestCharEvent(BaseGame* setGame);
+	SteerTowardsClosestCharEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 
 class StopMovingEvent : public Event
 {
 public:
-	StopMovingEvent(BaseGame* setGame);
+	StopMovingEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 
 class SelfDestructEvent : public Event
 {
 public:
-	SelfDestructEvent(BaseGame* setGame);
+	SelfDestructEvent(GameBase* setGame);
 	virtual void Process(ProjectileBase* subject);
 };
 #endif // EVENT_H

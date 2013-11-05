@@ -1,8 +1,8 @@
 #include "PlayerCharacterControlled.h"
-#include "Game.h"
+#include "GameBase.h"
 
-PlayerCharacterControlled :: PlayerCharacterControlled(Uint32 setId, BaseGame* setBaseGame)
-    : 	PlayerCharacter(setId, setBaseGame)
+PlayerCharacterControlled :: PlayerCharacterControlled(Uint32 setId, GameBase* setGameBase)
+    : 	PlayerCharacter(setId, setGameBase)
 {
 }
 

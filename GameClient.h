@@ -1,7 +1,7 @@
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef GameClient_H
+#define GameClient_H
 
-#include "Game.h"
+#include "GameBase.h"
 #include <deque>
 #include <vector>
 #include "Button.h"
@@ -14,23 +14,29 @@ const Uint32 	SERVER_INACTIVITY_TIME = 5000; // 5 seconds with no messages means
 const Uint32	RECONNECT_TO_SERVER_DELAY = 5000; // 5 seconds
 const Uint32	MIN_SEND_CONTROL_STATE_TIME = 30;
 
-class Client : public Game
+class GameClient : public GameBase
 {
 public:
-    Client();
-    ~Client();
+    GameClient();
+    ~GameClient();
 
     virtual void			Update();
     virtual void			Draw();
 
-    bool					GetExit() const
-    {
-        return exit;
-    }
+     // Events:
+    virtual void			DamageCharsInCircle(Uint32 attackerID, Uint32 damage, Vector2df centerPos, float radius) {}
+    virtual void			DamageCharsAtPos(Uint32 attackerID, Uint32 damage, Vector2df atPos) {}
+
+    // Creates:
+    virtual void			SpawnPlayerCharacter(Uint32 playerID) {}
+    virtual void			CreateProjectile(ProjectileType type, int ownerPlayerID, Vector2df setPos, Vector2df setHeading) {}
+    virtual void			CreateExplosion(int ownerPlayerID, Vector2df setPos) {}
+    virtual void			CreatePickUp(Vector2df setPos, PickUpType setType) {}
 
 private:
-    void					UpdateServerConnection();
+    void					UpdateGameServerConnection();
     void					UpdateCamera();
+	virtual void			UpdateRespawn(float timeDelta) {}
 
     // Character Control State:
     void					HandleMyPcControlState();
@@ -51,15 +57,15 @@ private:
 
     // Handling of event packets:
     void					HandleTextMessage(UDPpacket* packet);
-    void					HandleAddNewClient(UDPpacket* packet);
-    void					HandleRemoveClient(UDPpacket* packet);
+    void					HandleAddNewGameClient(UDPpacket* packet);
+    void					HandleRemoveGameClient(UDPpacket* packet);
     void					HandleConnectionAccepted(UDPpacket* packet);
     void					HandleSpawn(UDPpacket* packet);
     void					HandleKillNotification(UDPpacket* packet);
     void					HandleUpdateWorld(UDPpacket* packet);
 
     // Sending event packets:
-    void					SendUpdateServer();
+    void					SendUpdateGameServer();
     void					SendTextMessage(std::string msg);
     void 					SendConnectionRequest(std::string name);
     void					SendDisconnectNotification();
@@ -71,10 +77,10 @@ private:
     std::string 			clientName;
     bool					isMouseOverExitButton;
     Uint32					serverPingTime;
-    Uint32					timeOfLastServerMessage;
-    Uint32					timeOfLastMessageToServer;
+    Uint32					timeOfLastGameServerMessage;
+    Uint32					timeOfLastMessageToGameServer;
     Uint32					timeToSendNextControlState;
-    bool					isConnectedToServer;
+    bool					isConnectedToGameServer;
 
 
     std::deque<ControlState> previousControlStates;

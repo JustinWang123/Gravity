@@ -1,14 +1,15 @@
-#include "Client.h"
+#include "GameClient.h"
 #include <math.h>
 #include <assert.h>
 #include <fstream>
+#include "PacketProtocol.h"
 using namespace std;
 
 
 
 
 // ------------------------------------------------------------------------------------------------
-Client :: Client()
+GameClient :: GameClient()
 {
     // Open a UDPsocket on the first unused socket:
     for (int i = 0; i < 10; i++)
@@ -66,8 +67,7 @@ Client :: Client()
     remoteSequenceNum = 0;
     remoteSequenceNumBitField = -1;
     timeToSendNextControlState = SDL_GetTicks();
-    game = new BaseGame();
-    timeOfLastServerMessage = SDL_GetTicks();
+    timeOfLastGameServerMessage = SDL_GetTicks();
     nextPacketTime = SDL_GetTicks();
 } // ------------------------------------------------------------------------------------------------
 
@@ -75,10 +75,10 @@ Client :: Client()
 
 
 // ------------------------------------------------------------------------------------------------
-Client :: ~Client()
+GameClient :: ~GameClient()
 {
     // Notifiy server that we're disconnecting:
-    if(isConnectedToServer)
+    if(isConnectedToGameServer)
     {
         SendDisconnectNotification();
     }
@@ -95,15 +95,13 @@ Client :: ~Client()
         SDLNet_FreePacketV(packets);
         packets = NULL;
     }
-
-    delete game;
 } // ----------------------------------------------------------------------------------------------
 
 
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: Update()
+void GameClient :: Update()
 {
     // Receive all network data this game loop:
     ReceiveNetworkData();
@@ -111,9 +109,9 @@ void Client :: Update()
     // Update everything:
     InputChatMessage();
     HandleMyPcControlState();
-    game->Update();
+    GameBase::Update();
     UpdateCamera();
-    UpdateServerConnection();
+    UpdateGameServerConnection();
     exitButton.Update();
 
     // Exit:
@@ -123,9 +121,9 @@ void Client :: Update()
     }
 
     // Send network data:
-    if(isConnectedToServer && SDL_GetTicks() > nextPacketTime)
+    if(isConnectedToGameServer && SDL_GetTicks() > nextPacketTime)
     {
-        SendUpdateServer();
+        SendUpdateGameServer();
         nextPacketTime = SDL_GetTicks() + PACKET_SEND_DELAY;
     }
 } // ----------------------------------------------------------------------------------------------
@@ -134,21 +132,21 @@ void Client :: Update()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: UpdateServerConnection()
+void GameClient :: UpdateGameServerConnection()
 {
     // Keep attempting to connect to server:
-    if(!isConnectedToServer && SDL_GetTicks() > nextPacketTime)
+    if(!isConnectedToGameServer && SDL_GetTicks() > nextPacketTime)
     {
         nextPacketTime = SDL_GetTicks() + RECONNECT_TO_SERVER_DELAY;
-        timeOfLastServerMessage = SDL_GetTicks();
+        timeOfLastGameServerMessage = SDL_GetTicks();
         SendConnectionRequest(clientName);
     }
 
     // Determine if we have lost connection to server
-    if(isConnectedToServer && SDL_GetTicks() - timeOfLastServerMessage > SERVER_INACTIVITY_TIME)
+    if(isConnectedToGameServer && SDL_GetTicks() - timeOfLastGameServerMessage > SERVER_INACTIVITY_TIME)
     {
-        AddMessagetoChat("Server not responding...");
-        isConnectedToServer = false;
+        AddMessagetoChat("GameServer not responding...");
+        isConnectedToGameServer = false;
     }
 } // ----------------------------------------------------------------------------------------------
 
@@ -156,7 +154,7 @@ void Client :: UpdateServerConnection()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: UpdateCamera()
+void GameClient :: UpdateCamera()
 {
     if(myPc != 0)
     {
@@ -171,7 +169,7 @@ void Client :: UpdateCamera()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleMyPcControlState()
+void GameClient :: HandleMyPcControlState()
 {
     if(myPc != 0)
     {
@@ -191,9 +189,9 @@ void Client :: HandleMyPcControlState()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: Draw()
+void GameClient :: Draw()
 {
-    game->Draw(camPos);
+    GameBase::Draw(camPos);
     DrawHUD();
 } // ----------------------------------------------------------------------------------------------
 
@@ -202,7 +200,7 @@ void Client :: Draw()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: DrawHUD()
+void GameClient :: DrawHUD()
 {
     DrawSurface(580, 0, inGameMenu);
     DrawChatLog();
@@ -218,7 +216,7 @@ void Client :: DrawHUD()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: DrawScoreBoard()
+void GameClient :: DrawScoreBoard()
 {
 
     if(myChannel != INVALID_CHANNEL)
@@ -227,8 +225,8 @@ void Client :: DrawScoreBoard()
         DrawText(610,25, "Bullets: " + ToString(myPc->GetNumOfBullets()));
         DrawText(700,10, "Missiles: " + ToString(myPc->GetNumOfMissiles()));
         DrawText(700,25, "Mines: " + ToString(myPc->GetNumOfMines()));
-        //DrawText(610,450, "ServerPingTime: " + ToString(serverPingTime));
-        //DrawText(610,470, "time: " + ToString( (Uint32)GetTime()));// - (Uint32)timeOfLastMessageToServer));
+        //DrawText(610,450, "GameServerPingTime: " + ToString(serverPingTime));
+        //DrawText(610,470, "time: " + ToString( (Uint32)GetTime()));// - (Uint32)timeOfLastMessageToGameServer));
     }
 
     // Draw ACK list:
@@ -258,7 +256,7 @@ void Client :: DrawScoreBoard()
         {
             string str(players[i].name);
 
-            str += " - " + ToString(game->GetPlayerCharacterScore(i));
+            str += " - " + ToString(GetPlayerCharacterScore(i));
 
             DrawText(590, pos, str);
             pos += 20;
@@ -270,9 +268,9 @@ void Client :: DrawScoreBoard()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendDataAsPacket(char data[], int length)
+void GameClient :: SendDataAsPacket(char data[], int length)
 {
-    timeOfLastMessageToServer = GetTime();
+    timeOfLastMessageToGameServer = GetTime();
 
     // Insert the current local sequence num:
     memcpy(&data[PACKET_SEQUENCE_NUM], &localSequenceNum, 4);
@@ -292,7 +290,7 @@ void Client :: SendDataAsPacket(char data[], int length)
 
 
 // ------------------------------------------------------------------------------------------------
-Uint32 Client :: GetLostPacketSequenceNum(Uint32 ackNum, Uint32 ackBitfield)
+Uint32 GameClient :: GetLostPacketSequenceNum(Uint32 ackNum, Uint32 ackBitfield)
 {
     if( (Uint32)pow(2, 31) & ~ackBitfield )
     {
@@ -307,7 +305,7 @@ Uint32 Client :: GetLostPacketSequenceNum(Uint32 ackNum, Uint32 ackBitfield)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: AckSequenceNum(Uint32 newNum)
+void GameClient :: AckSequenceNum(Uint32 newNum)
 {
     // If num > remoteSequenceNum
     if(newNum > remoteSequenceNum)
@@ -331,7 +329,7 @@ void Client :: AckSequenceNum(Uint32 newNum)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: StorePacket(char data[], Uint32 length)
+void GameClient :: StorePacket(char data[], Uint32 length)
 {
     assert(length <= LISTABLE_PACKET_DATA_LENGTH);
 
@@ -356,7 +354,7 @@ void Client :: StorePacket(char data[], Uint32 length)
 
 
 // ------------------------------------------------------------------------------------------------
-ListablePacket* Client :: GetStoredPacket(Uint32 sequenceNum)
+ListablePacket* GameClient :: GetStoredPacket(Uint32 sequenceNum)
 {
     for(std::deque<ListablePacket*>::iterator it = sentPacketList.begin(); it != sentPacketList.end(); it++)
     {
@@ -374,7 +372,7 @@ ListablePacket* Client :: GetStoredPacket(Uint32 sequenceNum)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: ReceiveNetworkData()
+void GameClient :: ReceiveNetworkData()
 {
     // Receive n packets of data on our UDP socket:
     int n = SDLNet_UDP_RecvV(socket, packets);
@@ -382,7 +380,7 @@ void Client :: ReceiveNetworkData()
     // For each packet of data we need to look at the first word and determine what to do with it:
     while ( n-- > 0 )
     {
-        timeOfLastServerMessage = SDL_GetTicks();
+        timeOfLastGameServerMessage = SDL_GetTicks();
 
         // Acknowledge packet sequence num:
         Uint32 packetSequenceNum;
@@ -396,19 +394,19 @@ void Client :: ReceiveNetworkData()
             break;
 
         case PACKET_UPDATE_WORLD:
-            game->HandleUpdateWorld(packets[n]);
+            GameBase::HandleUpdateWorld(packets[n]);
             break;
 
         case PACKET_LEVEL_DATA:
-            game->HandleLevelData(packets[n]);
+            HandleLevelData(packets[n]);
             break;
 
         case PACKET_ADD:
-            HandleAddNewClient(packets[n]);
+            HandleAddNewGameClient(packets[n]);
             break;
 
         case PACKET_DEL:
-            HandleRemoveClient(packets[n]);
+            HandleRemoveGameClient(packets[n]);
             break;
 
         case PACKET_ACCEPT_CONNECTION:
@@ -430,7 +428,7 @@ void Client :: ReceiveNetworkData()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendUpdateServer()
+void GameClient :: SendUpdateGameServer()
 {
     char data[PACKET_PLAYER_UPDATE_SERVER_LENGTH];
     memcpy(&data[0], &PACKET_PLAYER_UPDATE_SERVER, 1);
@@ -445,7 +443,7 @@ void Client :: SendUpdateServer()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendConnectionRequest(string name)
+void GameClient :: SendConnectionRequest(string name)
 {
     int nameLength = name.length();
 
@@ -457,14 +455,14 @@ void Client :: SendConnectionRequest(string name)
 
     SendDataAsPacket(data, PACKET_REQUEST_CONNECTION_LENGTH + nameLength);
 
-    AddMessagetoChat("Requesting Server Connection...");
+    AddMessagetoChat("Requesting GameServer Connection...");
 } // ------------------------------------------------------------------------------------------------
 
 
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendDisconnectNotification()
+void GameClient :: SendDisconnectNotification()
 {
     char data[PACKET_DISCONNECT_LENGTH];
     memcpy(&data[0], &PACKET_DISCONNECT, 1);
@@ -477,7 +475,7 @@ void Client :: SendDisconnectNotification()
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendTextMessage(string msg)
+void GameClient :: SendTextMessage(string msg)
 {
     int msgLength = msg.length();
 
@@ -494,7 +492,7 @@ void Client :: SendTextMessage(string msg)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: SendControlState(ControlState state)
+void GameClient :: SendControlState(ControlState state)
 {
     char data[PACKET_PLAYER_CONTROL_STATE_LENGTH];
 
@@ -509,7 +507,7 @@ void Client :: SendControlState(ControlState state)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleTextMessage(UDPpacket* packet)
+void GameClient :: HandleTextMessage(UDPpacket* packet)
 {
     Uint32 playerID;
     Uint32 msgLength;
@@ -524,7 +522,7 @@ void Client :: HandleTextMessage(UDPpacket* packet)
 
     if(playerID == MAX_PLAYERS)
     {
-        AddMessagetoChat("Server: " + msg);
+        AddMessagetoChat("GameServer: " + msg);
     }
     else
     {
@@ -536,11 +534,11 @@ void Client :: HandleTextMessage(UDPpacket* packet)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleAddNewClient(UDPpacket* packet)
+void GameClient :: HandleAddNewGameClient(UDPpacket* packet)
 {
     Uint8 channel = packet->data[PACKET_ADD_SLOT];
 
-    // Grab the new clients name an associate with his channel:
+    // Grab the new GameClients name an associate with his channel:
     char nameC[100];
     memcpy(nameC, &packet->data[PACKET_ADD_NAME], packet->data[PACKET_ADD_NLEN]);
     players[channel].name.assign(nameC, packet->data[PACKET_ADD_NLEN]);
@@ -557,7 +555,7 @@ void Client :: HandleAddNewClient(UDPpacket* packet)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleRemoveClient(UDPpacket* packet)
+void GameClient :: HandleRemoveGameClient(UDPpacket* packet)
 {
     Uint8 channel = packet->data[PACKET_DEL_SLOT];
 
@@ -568,7 +566,7 @@ void Client :: HandleRemoveClient(UDPpacket* packet)
 
     if(channel == myChannel)
     {
-        isConnectedToServer = false;
+        isConnectedToGameServer = false;
         exit = true;
     }
 } // ----------------------------------------------------------------------------------------------
@@ -577,7 +575,7 @@ void Client :: HandleRemoveClient(UDPpacket* packet)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleConnectionAccepted(UDPpacket* packet)
+void GameClient :: HandleConnectionAccepted(UDPpacket* packet)
 {
     // Get channel:
     memcpy(&myChannel, &packet->data[PACKET_ACCEPT_CONNECTION_CHANNEL], 4);
@@ -586,12 +584,12 @@ void Client :: HandleConnectionAccepted(UDPpacket* packet)
     players[myChannel].name = clientName;
 
     // Get pc:
-    game->MakeCharacterControllable(myChannel);
-    myPc = game->GetPlayerCharacter(myChannel);
+    MakeCharacterControllable(myChannel);
+    myPc = GetPlayerCharacter(myChannel);
 
     // Display a text message:
     AddMessagetoChat("You have established a conection with the server...");
-    isConnectedToServer = true;
+    isConnectedToGameServer = true;
 
 } // ----------------------------------------------------------------------------------------------
 
@@ -599,7 +597,7 @@ void Client :: HandleConnectionAccepted(UDPpacket* packet)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleSpawn(UDPpacket* packet)
+void GameClient :: HandleSpawn(UDPpacket* packet)
 {
     Uint32 channel;
     Uint32 posX;
@@ -617,7 +615,7 @@ void Client :: HandleSpawn(UDPpacket* packet)
 
 
 // ------------------------------------------------------------------------------------------------
-void Client :: HandleKillNotification(UDPpacket* packet)
+void GameClient :: HandleKillNotification(UDPpacket* packet)
 {
     Uint32 killerID;
     Uint32 killedID;

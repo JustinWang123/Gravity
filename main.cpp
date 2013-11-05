@@ -1,6 +1,6 @@
-#include "Server.h"
-#include "Client.h"
-#include "Editor.h"
+#include "GameServer.h"
+#include "GameClient.h"
+#include "GameEditor.h"
 #include "SDLWrapper.h"
 #include <iostream>
 #include "Menu.h"
@@ -11,19 +11,19 @@ const int FRAME_TIME = 20;
 enum GameMode
 {
     GAME_MODE_MENU,
-    GAME_MODE_CLIENT,
+    GAME_MODE_GameClient,
     GAME_MODE_SERVER,
     GAME_MODE_EDITOR
 };
 
 GameMode 	gameMode;
 Menu* 		menu;
-Server* 	server;
-Client* 	client;
-Editor*		editor;
+GameServer* server;
+GameClient* gameClient;
+GameEditor*	gameEditor;
 
-void		InitGameModeClient();
-void		InitGameModeServer();
+void		InitGameModeGameClient();
+void		InitGameModeGameServer();
 void		InitGameModeEditor();
 void		InitGameModeMenu();
 void		CleanUp();
@@ -49,23 +49,23 @@ int main(int argc, char *argv[])
             server->Update();
             server->Draw();
         }
-        else if(gameMode == GAME_MODE_CLIENT)
+        else if(gameMode == GAME_MODE_GameClient)
         {
 
-            client->Update();
-            client->Draw();
+            gameClient->Update();
+            gameClient->Draw();
 
-            if(client->GetExit())
+            if(gameClient->GetExit())
             {
                 InitGameModeMenu();
             }
         }
         else if(gameMode == GAME_MODE_EDITOR)
         {
-            editor->Update();
-            editor->Draw();
+            gameEditor->Update();
+            gameEditor->Draw();
 
-            if(editor->GetExit())
+            if(gameEditor->GetExit())
             {
                 InitGameModeMenu();
             }
@@ -81,11 +81,11 @@ int main(int argc, char *argv[])
             }
             else if(menu->GetChoice() == CHOICE_JOIN)
             {
-                InitGameModeClient();
+                InitGameModeGameClient();
             }
             else if(menu->GetChoice() == CHOICE_HOST)
             {
-                InitGameModeServer();
+                InitGameModeGameServer();
             }
             else if(menu->GetChoice() == CHOICE_EDIT)
             {
@@ -120,23 +120,22 @@ void InitGameModeMenu()
     SetWindowSize(10 + BUTTON_WIDTH + 10, EXIT_POS_Y + BUTTON_HEIGHT + 10);
 }
 
-void InitGameModeClient()
+void InitGameModeGameClient()
 {
     CleanUp();
-    gameMode = GAME_MODE_CLIENT;
+    gameMode = GAME_MODE_GameClient;
 
-    client = new Client();
+    gameClient = new GameClient();
 
     SetWindowSize(800, 600);
 }
 
-void InitGameModeServer()
+void InitGameModeGameServer()
 {
     CleanUp();
     gameMode = GAME_MODE_SERVER;
 
-    server = new Server();
-    //client = new Client();
+    server = new GameServer();
 
     SetWindowSize(800, 600);
 }
@@ -146,17 +145,17 @@ void InitGameModeEditor()
     CleanUp();
     gameMode = GAME_MODE_EDITOR;
 
-    editor = new Editor();
+    gameEditor = new GameEditor();
 
     SetWindowSize(800, 600);
 }
 
 void CleanUp()
 {
-    if(client != 0)
+    if(gameClient != 0)
     {
-        delete client;
-        client = 0;
+        delete gameClient;
+        gameClient = 0;
     }
 
     if(server != 0)
@@ -165,10 +164,10 @@ void CleanUp()
         server = 0;
     }
 
-    if(editor != 0)
+    if(gameEditor != 0)
     {
-        delete editor;
-        editor = 0;
+        delete gameEditor;
+        gameEditor = 0;
     }
 
     if(menu != 0)

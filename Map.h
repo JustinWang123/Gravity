@@ -3,7 +3,7 @@
 
 #include "SDLWrapper.h"
 #include "Vector2df.h"
-class BaseGame;
+class GameBase;
 
 const Uint32 				MAP_TILE_SIZE = 32;
 const Uint32 				MAP_NUM_TILES_X = 30;
@@ -41,10 +41,11 @@ enum TileType
 class Map
 {
 public:
-    Map(Vector2df setScreenPos, BaseGame* setBaseGame);
+    Map(Vector2df setScreenPos, GameBase* setGameBase);
     ~Map();
 
     void					LoadMap(std::string fileName);
+    void					SaveMap();
     void					CalculateGravityVectors();
 
     void 					Draw(Vector2df camPos) const;
@@ -52,11 +53,16 @@ public:
     Uint32 					WriteLevelDataToPacket(Uint8 data[]);
     void					HandleLevelData(UDPpacket* packet);
 
+	// Modifiers:
+	void 			SetTile(Uint32 tileX, Uint32 tileY, TileType type);
+
     // Accessors:
     bool					IsPosSolid(Vector2df atPos) const;
     bool					IsPosGravityWell(Vector2df atPos) const;
     Vector2df				GetPosGravity(Vector2df atPos) const;
     Vector2df				GetRandomSpawnPointPos() const;
+    SDL_Surface* 			GetTileSurface(TileType type);
+
 
 protected:
     void					CreateSpawnPoint(Vector2df atPos);
@@ -70,7 +76,7 @@ protected:
     Vector2df				tileGravity[MAP_NUM_TILES_X][MAP_NUM_TILES_Y];
     Vector2df				spawnPoints[MAP_MAX_NUM_OF_SPAWN_POINTS];
 
-    BaseGame* 				game;
+    GameBase* 				game;
     Uint32					currentSpawnPoint;
 };
 

@@ -1,7 +1,7 @@
 #include "PickUp.h"
 #include "PacketProtocol.h"
 #include <assert.h>
-#include "BaseGame.h"
+#include "GameBase.h"
 
 SDL_Surface* PickUp :: repairPickUpSurface = 0;
 SDL_Surface* PickUp :: bulletsPickUpSurface = 0;

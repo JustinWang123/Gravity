@@ -1,17 +1,17 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include "Game.h"
+#include "GameBase.h"
 
 using namespace std;
 
 const Uint32 PLAYER_TIME_OUT = 10000; // 10 seconds
 
-class Server : public Game
+class GameServer : public GameBase
 {
 public:
-    Server();
-    ~Server();
+    GameServer();
+    ~GameServer();
 
     virtual void			Update();
     virtual void			Draw();

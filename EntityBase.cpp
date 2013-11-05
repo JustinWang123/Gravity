@@ -2,7 +2,7 @@
 #include "Map.h"
 #include <assert.h>
 
-EntityBase :: EntityBase(Uint32 setId, BaseGame* setGame)
+EntityBase :: EntityBase(Uint32 setId, GameBase* setGame)
     :	id(setId),
     	isActive(false),
 		game(setGame)
@@ -24,7 +24,7 @@ Vector2df EntityBase :: Pos() const
     return pos;
 }
 
-BaseGame* EntityBase :: Game() const
+GameBase* EntityBase :: Game() const
 {
 	return game;
 }
@@ -39,12 +39,7 @@ void EntityBase :: Deactivate()
     isActive = false;
 }
 
-Vector2df EntityBase :: SetPos(Vector2df setPos)
+void EntityBase :: SetPos(Vector2df setPos)
 {
-    assert(setPos.x >= MAP_MIN_POS_X 	&& "EntityBase::SetPos");
-    assert(setPos.x < MAP_MAX_POS_X 	&& "EntityBase::SetPos");
-    assert(setPos.y >= MAP_MIN_POS_Y 	&& "EntityBase::SetPos");
-    assert(setPos.y < MAP_MAX_POS_Y 	&& "EntityBase::SetPos");
-
     pos = setPos;
 }

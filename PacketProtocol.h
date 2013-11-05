@@ -4,15 +4,15 @@
 #include "PlayerCharacter.h"
 #include "Map.h"
 
-/* Defines for the chat client */
+/* Defines for the chat GameClient */
 const Uint32 PACKET_PACKETSIZE = 3000;		/* Maximum length of a message */
 
-/* Defines shared between the server and client */
+/* Defines shared between the server and GameClient */
 const Uint32 NETWORK_PORT = 3000;
 
 const Uint32 PACKET_SEQUENCE_NUM = 1;
 
-/* The protocol between the chat client and server */
+/* The protocol between the chat GameClient and server */
 const Uint32 PACKET_REQUEST_CONNECTION = 0;
 const Uint32 PACKET_REQUEST_CONNECTION_SEQUENCE_NUM = 1;
 const Uint32 PACKET_REQUEST_CONNECTION_NLEN = 5;
@@ -70,7 +70,7 @@ const Uint32 PACKET_WRITE_PLAYER_NUM_BULLETS = 28;
 const Uint32 PACKET_WRITE_PLAYER_NUM_MISSILE = 32;
 const Uint32 PACKET_WRITE_PLAYER_NUM_MINES = 36;
 const Uint32 PACKET_WRITE_PLAYER_SCORE = 40;
-const Uint32 PACKET_WRITE_PLAYER_TIME = 44;
+const Uint32 PACKET_WRITE_PLAYER_ATTACK_DELAY = 44;
 const Uint32 PACKET_WRITE_PLAYER_CONTROL_STATE = 48;
 const Uint32 PACKET_WRITE_PLAYER_LENGTH = 48 + sizeof(ControlState); // FIXTHIS
 

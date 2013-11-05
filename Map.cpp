@@ -2,10 +2,11 @@
 #include <fstream>
 #include <assert.h>
 #include <math.h>
-#include "Game.h"
+#include "GameBase.h"
+#include "PacketProtocol.h"
 
 // ------------------------------------------------------------------------------------------------
-Map :: Map(Vector2df setScreenPos, BaseGame* setBaseGame)
+Map :: Map(Vector2df setScreenPos, GameBase* setGameBase)
 {
     tileSurfaces[TILE_TYPE_SPACE] = LoadSurface("Surfaces/Space.png");
     tileSurfaces[TILE_TYPE_WALL] = LoadSurface("Surfaces/Metal_Wall_01.png");
@@ -20,7 +21,7 @@ Map :: Map(Vector2df setScreenPos, BaseGame* setBaseGame)
     tileSurfaces[TILE_TYPE_SPAWN] = LoadSurface("Surfaces/SpawnTile.png");
 
     screenPos = setScreenPos;
-    game = setBaseGame;
+    game = setGameBase;
     currentSpawnPoint = 0;
 
     for(Tile y = 0; y < MAP_NUM_TILES_Y; y++)
@@ -393,3 +394,41 @@ void Map :: HandleLevelData(UDPpacket* packet)
         }
     }
 } // --------------------------------------------------------------------------------------------
+
+
+
+
+
+
+void Map :: SetTile(Uint32 tileX, Uint32 tileY, TileType type)
+{
+    tileTypes[tileX][tileY] = type;
+}
+
+
+
+
+
+SDL_Surface*  Map :: GetTileSurface(TileType type)
+{
+    return tileSurfaces[(int)type];
+}
+
+
+
+
+void Map :: SaveMap()
+{
+    std::ofstream myfile;
+    myfile.open ("Data/newLevel.txt", std::ios::trunc);
+
+    for(Uint32 y = 0; y < MAP_NUM_TILES_Y; y++)
+        for(Uint32 x = 0; x < MAP_NUM_TILES_X; x++)
+        {
+            myfile << (int)tileTypes[x][y];
+            myfile << " ";
+        }
+
+    myfile.close();
+}
+

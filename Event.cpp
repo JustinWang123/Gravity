@@ -1,22 +1,34 @@
 #include "Event.h"
 #include "ProjectileBase.h"
-#include "BaseGame.h"
+#include "GameBase.h"
 
 // Event:
 // ------------------------------------------------------------------------------------------------
-Event :: Event(BaseGame* setGame)
+Event :: Event(GameBase* setGame)
 {
 	game = setGame;
 }
 
-BaseGame* Event :: Game() const
+GameBase* Event :: Game() const
 {
 	return game;
 }
 
+// DoNothingEvent:
+// ------------------------------------------------------------------------------------------------
+DoNothingEvent :: DoNothingEvent(GameBase* setGame)
+	:	Event(setGame)
+{
+}
+
+void DoNothingEvent :: Process(ProjectileBase* subject)
+{
+	// Do nothing
+}
+
 // DeactivateEvent:
 // ------------------------------------------------------------------------------------------------
-DeactivateEvent :: DeactivateEvent(BaseGame* setGame)
+DeactivateEvent :: DeactivateEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }
@@ -28,7 +40,7 @@ void DeactivateEvent :: Process(ProjectileBase* subject)
 
 // BulletHitCharEvent:
 // ------------------------------------------------------------------------------------------------
-BulletHitCharEvent :: BulletHitCharEvent(BaseGame* setGame)
+BulletHitCharEvent :: BulletHitCharEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }
@@ -41,7 +53,7 @@ void BulletHitCharEvent :: Process(ProjectileBase* subject)
 
 // CreateSmokeEvent:
 // ------------------------------------------------------------------------------------------------
-CreateSmokeEvent :: CreateSmokeEvent(BaseGame* setGame)
+CreateSmokeEvent :: CreateSmokeEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }
@@ -56,7 +68,7 @@ void CreateSmokeEvent :: Process(ProjectileBase* subject)
 
 // SteerTowardsClosestCharEvent:
 // ------------------------------------------------------------------------------------------------
-SteerTowardsClosestCharEvent :: SteerTowardsClosestCharEvent(BaseGame* setGame)
+SteerTowardsClosestCharEvent :: SteerTowardsClosestCharEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }
@@ -73,7 +85,7 @@ void SteerTowardsClosestCharEvent :: Process(ProjectileBase* subject)
 
 // StopMovingEvent:
 // ------------------------------------------------------------------------------------------------
-StopMovingEvent :: StopMovingEvent(BaseGame* setGame)
+StopMovingEvent :: StopMovingEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }
@@ -85,7 +97,7 @@ void StopMovingEvent :: Process(ProjectileBase* subject)
 
 // SelfDestructEvent:
 // ------------------------------------------------------------------------------------------------
-SelfDestructEvent :: SelfDestructEvent(BaseGame* setGame)
+SelfDestructEvent :: SelfDestructEvent(GameBase* setGame)
 	:	Event(setGame)
 {
 }

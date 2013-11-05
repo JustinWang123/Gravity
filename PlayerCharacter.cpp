@@ -1,5 +1,5 @@
 #include "PlayerCharacter.h"
-#include "Game.h"
+#include "GameBase.h"
 #include "PacketProtocol.h"
 #include <math.h>
 #include <assert.h>
@@ -7,11 +7,11 @@
 
 
 // ------------------------------------------------------------------------------------------------
-PlayerCharacter :: PlayerCharacter(Uint32 setId, BaseGame* setBaseGame)
+PlayerCharacter :: PlayerCharacter(Uint32 setId, GameBase* setGameBase)
     :	attackDelay(0),
         id(setId),
         isActive(false),
-        game(setBaseGame)
+        game(setGameBase)
 {
 
     health = CHARACTER_HEALTH;
@@ -25,6 +25,7 @@ PlayerCharacter :: PlayerCharacter(Uint32 setId, BaseGame* setBaseGame)
     surfaceRightRun = LoadSurface("Surfaces/Marine_Right_Run.bmp");
     surfaceHeading = LoadSurface("Surfaces/Bullet.bmp");
     surfaceDead = LoadSurface("Surfaces/Marine_Dead.bmp");
+    respawnMe = false;
 } // ----------------------------------------------------------------------------------------------
 
 
@@ -57,7 +58,7 @@ void PlayerCharacter :: Spawn(Vector2df atPos)
     numOfMissiles = 20;
     numOfMines = 20;
     makeSmokeTime = 0;
-
+    respawnMe = false;
 } // ----------------------------------------------------------------------------------------------
 
 
@@ -557,19 +558,20 @@ void PlayerCharacter :: Attack(ProjectileType type)
         {
             game->CreateProjectile(PROJECTILE_TYPE_BULLET, id, pos + Heading() * CHARACTER_RADIUS, Heading());
             numOfBullets--;
+            attackDelay = CHARACTER_ATTACK_DELAY;
         }
         else if(type == PROJECTILE_TYPE_MISSILE && numOfMissiles > 0)
         {
             game->CreateProjectile(PROJECTILE_TYPE_MISSILE, id, pos + Heading() * CHARACTER_RADIUS, Heading());
             numOfMissiles--;
+            attackDelay = CHARACTER_ATTACK_DELAY * 3.0f;
         }
         else if(type == PROJECTILE_TYPE_MINE && numOfMines > 0)
         {
             game->CreateProjectile(PROJECTILE_TYPE_MINE, id, pos + Heading() * CHARACTER_RADIUS,  Heading());
             numOfMines--;
+            attackDelay = CHARACTER_ATTACK_DELAY * 3.0f;
         }
-
-        attackDelay = CHARACTER_ATTACK_DELAY;
     }
 } // ----------------------------------------------------------------------------------------------
 
@@ -630,6 +632,7 @@ Uint32 PlayerCharacter :: WriteToPacket(Uint32 dataWritePos, Uint8 data[])
     memcpy(&data[dataWritePos + PACKET_WRITE_PLAYER_NUM_MISSILE], &numOfMissiles, 4);
     memcpy(&data[dataWritePos + PACKET_WRITE_PLAYER_NUM_MINES], &numOfMines, 4);
     memcpy(&data[dataWritePos + PACKET_WRITE_PLAYER_SCORE], &score, 4);
+    memcpy(&data[dataWritePos + PACKET_WRITE_PLAYER_ATTACK_DELAY], &attackDelay, 4);
     memcpy(&data[dataWritePos + PACKET_WRITE_PLAYER_CONTROL_STATE], &controlState, sizeof(ControlState));
 
     return PACKET_WRITE_PLAYER_LENGTH;
@@ -652,6 +655,7 @@ Uint32 PlayerCharacter :: ReadFromPacket(Uint32 dataReadPos, Uint8 data[])
     memcpy(&numOfMissiles, &data[dataReadPos + PACKET_WRITE_PLAYER_NUM_MISSILE], 4);
     memcpy(&numOfMines, &data[dataReadPos + PACKET_WRITE_PLAYER_NUM_MINES], 4);
     memcpy(&score, &data[dataReadPos + PACKET_WRITE_PLAYER_SCORE], 4);
+	memcpy(&attackDelay, &data[dataReadPos + PACKET_WRITE_PLAYER_ATTACK_DELAY], 4);
     memcpy(&setControlState, &data[dataReadPos + PACKET_WRITE_PLAYER_CONTROL_STATE], sizeof(ControlState));
 
     SetControlState(setControlState);

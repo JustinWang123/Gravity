@@ -1,14 +1,12 @@
-#include "Editor.h"
-#include "EditorGame.h"
-#include "EditorMap.h"
+#include "GameEditor.h"
 
 const Uint32 	GAME_SAVE_BUTTON_POS_X = 666;
 const Uint32 	GAME_SAVE_BUTTON_POS_Y = 528;
 const Uint32 	GAME_EXIT_BUTTON_POS_X = 666;
 const Uint32 	GAME_EXIT_BUTTON_POS_Y = 570;
 
-Editor :: Editor()
-    : Game()
+GameEditor :: GameEditor()
+    : GameBase()
 {
     camPos.Set(0,0);
 
@@ -25,19 +23,18 @@ Editor :: Editor()
                     LoadSurface("Surfaces/SaveButtonUp.png"));
 
     exit = false;
-    game = new EditorGame();
-    editorMap = ((EditorGame*)game)->GetMap();
+    //editorMap = ((GameEditor*)game)->GetMap(); // FIXTHIS
     currentTile = 0;
     selector = LoadSurface("Surfaces/EditorSelector.png");
 }
 
 
-Editor :: ~Editor()
+GameEditor :: ~GameEditor()
 {
     FreeSurface(selector);
 }
 
-void Editor :: Update()
+void GameEditor :: Update()
 {
     if(keysDown[SDLK_w])
     {
@@ -67,7 +64,7 @@ void Editor :: Update()
 
     if(mouseX < 580 && buttonsDown[0])
     {
-        editorMap->SetTile( (camPos.x + mouseX)/32, (camPos.y + mouseY)/32, (TileType)currentTile);
+        gameMap->SetTile( (camPos.x + mouseX)/32, (camPos.y + mouseY)/32, (TileType)currentTile);
     }
 
     // Exit:
@@ -79,25 +76,21 @@ void Editor :: Update()
     // Save Level:
     if(saveButton.IsClicked())
     {
-        editorMap->SaveMap();
+        gameMap->SaveMap();
     }
 }
 
-void Editor :: Draw()
+void GameEditor :: Draw()
 {
-    game->Draw(camPos);
+    GameBase::Draw(camPos);
     DrawSurface(580, 0, inGameMenu);
     exitButton.Draw();
     saveButton.Draw();
 
     for(int i = 0; i < NUM_OF_TILE_TYPES; i++)
     {
-        DrawSurface(768, i * 32, editorMap->GetTileSurface((TileType)i));
+        DrawSurface(768, i * 32, gameMap->GetTileSurface((TileType)i));
     }
 
     DrawSurface(768, currentTile * 32, selector);
-}
-
-void Editor :: DrawTileSelector()
-{
 }

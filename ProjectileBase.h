@@ -5,7 +5,7 @@
 #include "Vector2df.h"
 #include "EntityBase.h"
 class Event;
-class BaseGame;
+class GameBase;
 
 typedef float 				Pos;
 
@@ -60,7 +60,7 @@ enum ProjectileType
 class ProjectileBase : public EntityBase
 {
 public:
-    ProjectileBase(Uint32 setId, BaseGame* setGame);
+    ProjectileBase(Uint32 setId, GameBase* setGame, Event* defaultEvent);
     virtual                 ~ProjectileBase() {}
 
 	virtual void			Update(float timeDelta);
@@ -127,6 +127,7 @@ private:
 	SDL_Surface* 			surface;
 	Vector2df				hitPos;
 	bool					isMoving;
+	Event*					defaultEvent;
 
 };
 

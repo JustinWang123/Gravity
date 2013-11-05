@@ -14,13 +14,13 @@
 	"ProjectileBase.h"
 	"Event.h"
 
-1382048946 c:\users\dima\documents\gravity\sdlwrapper.h
+1382045346 c:\users\dima\documents\gravity\sdlwrapper.h
 	"SDL.h"
 	"SDL_net.h"
 	<string>
 	"SDL_rotozoom.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -39,14 +39,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_main.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_stdinc.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -72,7 +72,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1326114588 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config.h
+1326110988 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -82,16 +82,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_platform.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_platform.h
 
-1326114594 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config_win32.h
+1326110994 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_config_win32.h
 	"SDL_platform.h"
 
-1326114600 c:\users\dima\documents\lib\sdl-1.2.15\include\begin_code.h
+1326111000 c:\users\dima\documents\lib\sdl-1.2.15\include\begin_code.h
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\close_code.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\close_code.h
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_audio.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -101,24 +101,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_error.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_endian.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mutex.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_thread.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -126,24 +126,24 @@
 	<process.h>
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rwops.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cdrom.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cpuinfo.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_events.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -154,96 +154,96 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_active.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keyboard.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keysym.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_keysym.h
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mouse.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_video.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_joystick.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_quit.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_timer.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_version.h
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325825126 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_net.h
+1325821526 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_net.h
 	"SDL.h"
 	"SDL_endian.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1336974206 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rotozoom.h
+1336970606 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_rotozoom.h
 	<math.h>
 	"SDL.h"
 
-1382050943 c:\users\dima\documents\gravity\playercharacter.h
+1383615350 c:\users\dima\documents\gravity\playercharacter.h
 	"SDLWrapper.h"
 	"ProjectileBase.h"
 
-1382585308 c:\users\dima\documents\gravity\projectilebase.h
+1382726951 c:\users\dima\documents\gravity\projectilebase.h
 	"SDLWrapper.h"
 	"Vector2df.h"
 	"EntityBase.h"
 
-1382048946 c:\users\dima\documents\gravity\vector2df.h
+1382045346 c:\users\dima\documents\gravity\vector2df.h
 
-1382068886 c:\users\dima\documents\gravity\entitybase.h
+1382725393 c:\users\dima\documents\gravity\entitybase.h
 	"SDLWrapper.h"
 	"Vector2df.h"
 
 1382468046 c:\users\dima\documents\gravity\bullet.h
 	"ProjectileBase.h"
 
-1382048946 c:\users\dima\documents\gravity\map.h
+1382725093 c:\users\dima\documents\gravity\map.h
 	"SDLWrapper.h"
 	"Vector2df.h"
 
-1382048946 c:\users\dima\documents\gravity\player.h
+1382045346 c:\users\dima\documents\gravity\player.h
 	"PlayerCharacter.h"
 	<deque>
 
@@ -259,16 +259,16 @@
 1382468059 c:\users\dima\documents\gravity\mine.h
 	"ProjectileBase.h"
 
-1382048946 c:\users\dima\documents\gravity\pickup.h
+1382045346 c:\users\dima\documents\gravity\pickup.h
 	"SDLWrapper.h"
 	"Vector2df.h"
 
-1382585308 c:\users\dima\documents\gravity\packetprotocol.h
+1383614388 c:\users\dima\documents\gravity\packetprotocol.h
 	"SDLWrapper.h"
 	"PlayerCharacter.h"
 	"Map.h"
 
-1382048946 c:\users\dima\documents\gravity\playercharactercontrolled.h
+1382590867 c:\users\dima\documents\gravity\playercharactercontrolled.h
 	"PlayerCharacter.h"
 	<deque>
 
@@ -278,20 +278,21 @@
 	"PacketProtocol.h"
 	<assert.h>
 
-1382048946 source:c:\users\dima\documents\gravity\button.cpp
+1382045346 source:c:\users\dima\documents\gravity\button.cpp
 	"Button.h"
 
-1382052981 c:\users\dima\documents\gravity\button.h
+1382049381 c:\users\dima\documents\gravity\button.h
 	"SDLWrapper.h"
 
-1382048946 source:c:\users\dima\documents\gravity\client.cpp
+1382597670 source:c:\users\dima\documents\gravity\client.cpp
 	"Client.h"
 	<math.h>
 	<assert.h>
 	<fstream>
+	"PacketProtocol.h"
 
-1382048946 c:\users\dima\documents\gravity\client.h
-	"Game.h"
+1382595172 c:\users\dima\documents\gravity\client.h
+	"GameBase.h"
 	<deque>
 	<vector>
 	"Button.h"
@@ -303,31 +304,31 @@
 	<vector>
 	"BaseGame.h"
 
-1382048946 source:c:\users\dima\documents\gravity\editor.cpp
+1382595338 source:c:\users\dima\documents\gravity\editor.cpp
 	"Editor.h"
 	"EditorGame.h"
 	"EditorMap.h"
 
-1382048946 c:\users\dima\documents\gravity\editor.h
-	"Game.h"
+1382595287 c:\users\dima\documents\gravity\editor.h
+	"GameBase.h"
 	"Button.h"
 	"Vector2df.h"
 
-1382048946 c:\users\dima\documents\gravity\editorgame.h
-	"BaseGame.h"
+1382594467 c:\users\dima\documents\gravity\editorgame.h
+	"GameBase.h"
 	"EditorMap.h"
 
-1382048946 c:\users\dima\documents\gravity\editormap.h
+1382594467 c:\users\dima\documents\gravity\editormap.h
 	"Map.h"
 
 1382048946 source:c:\users\dima\documents\gravity\editorgame.cpp
 	"EditorGame.h"
 
-1382048946 source:c:\users\dima\documents\gravity\editormap.cpp
+1382594467 source:c:\users\dima\documents\gravity\editormap.cpp
 	"EditorMap.h"
 	<fstream>
 
-1382068886 source:c:\users\dima\documents\gravity\entitybase.cpp
+1383612260 source:c:\users\dima\documents\gravity\entitybase.cpp
 	"EntityBase.h"
 	"Map.h"
 	<assert.h>
@@ -342,30 +343,31 @@
 	<math.h>
 	<assert.h>
 
-1382068088 source:c:\users\dima\documents\gravity\main.cpp
-	"Server.h"
-	"Client.h"
-	"Editor.h"
+1382725234 source:c:\users\dima\documents\gravity\main.cpp
+	"GameServer.h"
+	"GameClient.h"
+	"GameEditor.h"
 	"SDLWrapper.h"
 	<iostream>
 	"Menu.h"
 
-1382048946 c:\users\dima\documents\gravity\server.h
-	"Game.h"
+1382595353 c:\users\dima\documents\gravity\server.h
+	"GameBase.h"
 
-1382048946 c:\users\dima\documents\gravity\menu.h
+1382045346 c:\users\dima\documents\gravity\menu.h
 	"SDLWrapper.h"
 	"Button.h"
 	<string>
 
-1382048945 source:c:\users\dima\documents\gravity\map.cpp
+1382725093 source:c:\users\dima\documents\gravity\map.cpp
 	"Map.h"
 	<fstream>
 	<assert.h>
 	<math.h>
-	"Game.h"
+	"GameBase.h"
+	"PacketProtocol.h"
 
-1382048946 source:c:\users\dima\documents\gravity\menu.cpp
+1382045346 source:c:\users\dima\documents\gravity\menu.cpp
 	"Menu.h"
 
 1382468215 source:c:\users\dima\documents\gravity\mine.cpp
@@ -382,35 +384,35 @@
 	<math.h>
 	<assert.h>
 
-1382048946 source:c:\users\dima\documents\gravity\pickup.cpp
+1382590867 source:c:\users\dima\documents\gravity\pickup.cpp
 	"PickUp.h"
 	"PacketProtocol.h"
 	<assert.h>
-	"BaseGame.h"
+	"GameBase.h"
 
-1382048946 source:c:\users\dima\documents\gravity\player.cpp
+1382045346 source:c:\users\dima\documents\gravity\player.cpp
 	"Player.h"
 	"PlayerCharacter.h"
 
-1382477956 source:c:\users\dima\documents\gravity\playercharacter.cpp
+1383614972 source:c:\users\dima\documents\gravity\playercharacter.cpp
 	"PlayerCharacter.h"
-	"Game.h"
+	"GameBase.h"
 	"PacketProtocol.h"
 	<math.h>
 	<assert.h>
 
-1382063229 source:c:\users\dima\documents\gravity\playercharactercontrolled.cpp
+1382591799 source:c:\users\dima\documents\gravity\playercharactercontrolled.cpp
 	"PlayerCharacterControlled.h"
-	"Game.h"
+	"GameBase.h"
 
-1382585308 source:c:\users\dima\documents\gravity\projectilebase.cpp
+1383615143 source:c:\users\dima\documents\gravity\projectilebase.cpp
 	"ProjectileBase.h"
 	<math.h>
-	"BaseGame.h"
+	"GameBase.h"
 	"PacketProtocol.h"
 	<assert.h>
 
-1382048946 source:c:\users\dima\documents\gravity\sdlwrapper.cpp
+1382045346 source:c:\users\dima\documents\gravity\sdlwrapper.cpp
 	"SDLWrapper.h"
 	"SDL_ttf.h"
 	"SDL_image.h"
@@ -421,38 +423,86 @@
 	<stdio.h>
 	<time.h>
 
-1325825594 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_ttf.h
+1325821994 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325821234 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_image.h
+1325817634 c:\users\dima\documents\lib\sdl-1.2.15\include\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1382048946 source:c:\users\dima\documents\gravity\server.cpp
+1382597761 source:c:\users\dima\documents\gravity\server.cpp
 	"Server.h"
 	<math.h>
 	<assert.h>
 	<iostream>
 	<fstream>
+	"PacketProtocol.h"
 
 1382068886 source:c:\users\dima\documents\gravity\smokeparticle.cpp
 	"SmokeParticle.h"
 	"Game.h"
 	<assert.h>
 
-1382048946 source:c:\users\dima\documents\gravity\vector2df.cpp
+1382045346 source:c:\users\dima\documents\gravity\vector2df.cpp
 	"Vector2df.h"
 	"SDLWrapper.h"
 	<math.h>
 
-1382471137 c:\users\dima\documents\gravity\event.h
+1382726795 c:\users\dima\documents\gravity\event.h
 
-1382481572 source:c:\users\dima\documents\gravity\event.cpp
+1382726583 source:c:\users\dima\documents\gravity\event.cpp
 	"Event.h"
 	"ProjectileBase.h"
-	"BaseGame.h"
+	"GameBase.h"
+
+1383613164 c:\users\dima\documents\gravity\gamebase.h
+	"SDLWrapper.h"
+	"PlayerCharacter.h"
+	"Map.h"
+	"Player.h"
+	"PickUp.h"
+	"ProjectileBase.h"
+	"Event.h"
+	<vector>
+
+1383613294 source:c:\users\dima\documents\gravity\gamebase.cpp
+	"GameBase.h"
+	"PacketProtocol.h"
+	"PlayerCharacterControlled.h"
+	<assert.h>
+
+1382725554 source:c:\users\dima\documents\gravity\gameclient.cpp
+	"GameClient.h"
+	<math.h>
+	<assert.h>
+	<fstream>
+	"PacketProtocol.h"
+
+1383613164 c:\users\dima\documents\gravity\gameclient.h
+	"GameBase.h"
+	<deque>
+	<vector>
+	"Button.h"
+
+1382725254 source:c:\users\dima\documents\gravity\gameeditor.cpp
+	"GameEditor.h"
+
+1382725254 c:\users\dima\documents\gravity\gameeditor.h
+	"GameBase.h"
+	"Button.h"
+
+1382725472 source:c:\users\dima\documents\gravity\gameserver.cpp
+	"GameServer.h"
+	<math.h>
+	<assert.h>
+	<iostream>
+	<fstream>
+	"PacketProtocol.h"
+
+1382723778 c:\users\dima\documents\gravity\gameserver.h
+	"GameBase.h"
 

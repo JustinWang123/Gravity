@@ -3,7 +3,7 @@
 
 #include "SDLWrapper.h"
 #include "ProjectileBase.h"
-class BaseGame;
+class GameBase;
 
 typedef Uint32 				Tile;
 typedef float 				Pos;
@@ -86,7 +86,7 @@ enum Facing
 class PlayerCharacter
 {
 public:
-    PlayerCharacter(Uint32 setId, BaseGame* setBaseGame);
+    PlayerCharacter(Uint32 setId, GameBase* setGameBase);
     virtual					~PlayerCharacter();
     void					Spawn(Vector2df atPos);
 
@@ -106,19 +106,16 @@ public:
     void					AddBullets(Uint32 amount);
     void					AddMissiles(Uint32 amount);
     void					AddMines(Uint32 amount);
-    void					SetRespawnMe(bool b)
-    {
-        respawnMe = b;
-    }
+    void					SetRespawnMe(bool b){respawnMe = b;}
     void					SetRespawnTime(Uint32 time)
     {
-        respawnTime = time;
-    }
+    	respawnTime = time;
+	}
     virtual void			SetControlState(ControlState newState);
     void					AddPoint()
     {
-        score++;
-    }
+    	score++;
+	}
 
     // Accessors:
     bool					IsActive() const
@@ -167,6 +164,7 @@ public:
         return respawnTime;
     }
     ControlState			GetControlState() const;
+    float					GetSpeed() const {return vel.Length();}
 
 protected:
     Vector2df				Heading() const;
@@ -226,7 +224,7 @@ protected:
     SDL_Surface*			surfaceDead;
 
     // The game that the character belongs to:
-    BaseGame* 				game;
+    GameBase* 				game;
 };
 
 #endif

@@ -1,18 +1,19 @@
 #include "ProjectileBase.h"
 #include <math.h>
-#include "BaseGame.h"
+#include "GameBase.h"
 #include "PacketProtocol.h"
 #include <assert.h>
 
 // ------------------------------------------------------------------------------------------------
-ProjectileBase :: ProjectileBase(Uint32 setId, BaseGame* setGame)
+ProjectileBase :: ProjectileBase(Uint32 setId, GameBase* setGame, Event* setDefaultEvent)
     : 	EntityBase(setId, setGame)
 {
-	hitSolidEvent = 0;
-	hitCharEvent = 0;
-	outOfLifeEvent = 0;
-	outOfHealthEvent = 0;
-	updateEvent = 0;
+	defaultEvent = setDefaultEvent;
+	hitSolidEvent = defaultEvent;
+	hitCharEvent = defaultEvent;
+	outOfLifeEvent = defaultEvent;
+	outOfHealthEvent = defaultEvent;
+	updateEvent = defaultEvent;
 } // ----------------------------------------------------------------------------------------------
 
 
@@ -39,11 +40,11 @@ void ProjectileBase :: SetType(ProjectileType setType, float setScale, SDL_Surfa
     radius = surface->w / 2;
 
 	// Remove any events:
-	hitSolidEvent = 0;
-	hitCharEvent = 0;
-	outOfLifeEvent = 0;
-	outOfHealthEvent = 0;
-	updateEvent = 0;
+	hitSolidEvent = defaultEvent;
+	hitCharEvent = defaultEvent;
+	outOfLifeEvent = defaultEvent;
+	outOfHealthEvent = defaultEvent;
+	updateEvent = defaultEvent;
 }
 
 
@@ -55,31 +56,22 @@ void ProjectileBase :: Update(float timeDelta)
 
     if(IsActive())
     {
-    	if(updateEvent)
-		{
-			updateEvent->Process(this);
-		}
+		updateEvent->Process(this);
 
 		if(isMoving)
 		{
 			Vector2df nextPos = Pos() + Heading() * speed * timeDelta;
 
-			if(hitCharEvent)
+			if(Game()->CheckCollisionWithChars(nextPos + Heading() * radius))
 			{
-				if(Game()->CheckCollisionWithChars(nextPos + Heading() * radius))
-				{
-					hitPos = nextPos + Heading() * radius;
-					hitCharEvent->Process(this);
-				}
+				hitPos = nextPos + Heading() * radius;
+				hitCharEvent->Process(this);
 			}
 
-			if(hitSolidEvent)
+			if(Game()->IsPosSolid(nextPos + Heading() * radius))
 			{
-				if(Game()->IsPosSolid(nextPos + Heading() * radius))
-				{
-					hitPos = nextPos + Heading() * radius;
-					hitSolidEvent->Process(this);
-				}
+				hitPos = nextPos + Heading() * radius;
+				hitSolidEvent->Process(this);
 			}
 
 			SetPos(nextPos);
@@ -167,10 +159,7 @@ void ProjectileBase :: SetLife(float setLife)
 	{
 		life = 0.0f;
 
-		if(outOfLifeEvent)
-		{
-			outOfLifeEvent->Process(this);
-		}
+		outOfLifeEvent->Process(this);
 	}
 
 } // ----------------------------------------------------------------------------------------------
@@ -188,10 +177,7 @@ void ProjectileBase :: DecreaseLife(float amount)
 	{
 		life = 0.0f;
 
-		if(outOfLifeEvent)
-		{
-			outOfLifeEvent->Process(this);
-		}
+		outOfLifeEvent->Process(this);
 	}
 } // ----------------------------------------------------------------------------------------------
 
@@ -216,10 +202,7 @@ void ProjectileBase :: SetHealth(Uint32 setHealth)
 
 	if(health == 0)
 	{
-		if(outOfHealthEvent)
-		{
-			outOfHealthEvent->Process(this);
-		}
+		outOfHealthEvent->Process(this);
 	}
 } // ----------------------------------------------------------------------------------------------
 
@@ -236,10 +219,7 @@ void ProjectileBase :: DecreaseHealth(Uint32 amount)
     {
         health = 0;
 
-        if(outOfHealthEvent)
-		{
-			outOfHealthEvent->Process(this);
-		}
+		outOfHealthEvent->Process(this);
     }
     else
     {
@@ -380,7 +360,7 @@ SDL_Surface* ProjectileBase :: Surface() const
 // ------------------------------------------------------------------------------------------------
 bool ProjectileBase :: IsSolid(Vector2df atPos) const
 {
-	return Vector2df(Pos() - atPos).Length() < radius;
+	return type != PROJECTILE_TYPE_SMOKE && Vector2df(Pos() - atPos).Length() < radius;
 } // ------------------------------------------------------------------------------------------------
 
 
